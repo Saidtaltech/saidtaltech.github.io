@@ -1,4 +1,4 @@
-window.EXAM={id:4,title:"Confiance, censure et dissolution",
+window.EXAM={sub:'dc',id:4,title:"Confiance, censure et dissolution",
 desc:"Responsabilité du Gouvernement et droit de dissolution : conditions, délais, majorités et effets (art. 56, 86, 87).",
 qs:[
 Q("Quelle condition de recevabilité s'applique à la motion de censure (art. 86) ?",["Elle doit être signée par un dixième des membres de l'Assemblée nationale","Elle doit être signée par la moitié des députés","Elle doit être visée par le Président","Elle doit être déposée par le Premier ministre"],"À peine d'irrecevabilité.","Art. 86"),

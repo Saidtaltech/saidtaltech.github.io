@@ -1,4 +1,4 @@
-window.EXAM={id:2,title:"Régimes politiques : critères et qualification",
+window.EXAM={sub:'dc',id:2,title:"Régimes politiques : critères et qualification",
 desc:"Séparation souple ou rigide, parlementarisme, dualisme de l'exécutif, cohabitation : qualifier le régime sénégalais.",
 qs:[
 Q("La séparation souple des pouvoirs caractérise…",["Le régime parlementaire","Le régime présidentiel","La dictature","L'État fédéral"],"La collaboration des pouvoirs exécutif et législatif est la marque du parlementarisme.","Doc. 1 – Bininga"),
