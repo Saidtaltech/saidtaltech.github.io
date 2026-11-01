@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Examens · Régime politique sénégalais</title>
+<meta name="description" content="5 examens interactifs de 20 questions sur le régime politique sénégalais (Droit constitutionnel, L1 Ingénierie juridique).">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><i></i>Droit constitutionnel</a><span class="sp"></span><button class="btn icon" id="theme" aria-label="Changer de thème">◐</button></div></header>
+<main class="wrap">
+<section class="hero"><div class="kicker">Licence 1 · Ingénierie juridique</div><h1>Le régime politique sénégalais</h1>
+<p>5 examens blancs de 20 questions, tirés de la fiche n°3 : QCM, vrai/faux, textes à compléter et développements à auto-évaluer. Corrigés détaillés avec références aux articles et aux documents.</p></section>
+<div class="grid" id="grid"></div>
+<div class="src"><b>Source :</b> fiche n°3 – Droit constitutionnel S2, « Régime politique sénégalais » (Pr. Kane / Dr Cissé) : documents 1 à 5 et cas pratique. Les articles cités sont ceux reproduits dans la fiche ; vérifiez toujours le texte en vigueur.</div>
+</main>
+<footer class="wrap">Vos meilleurs scores sont enregistrés sur cet appareil.</footer>
+<script src="assets/helpers.js"></script>
+<script src="data/exam1.js"></script><script>window.E1=window.EXAM</script>
+<script src="data/exam2.js"></script><script>window.E2=window.EXAM</script>
+<script src="data/exam3.js"></script><script>window.E3=window.EXAM</script>
+<script src="data/exam4.js"></script><script>window.E4=window.EXAM</script>
+<script src="data/exam5.js"></script><script>window.E5=window.EXAM</script>
+<script>
+const g=document.getElementById('grid');
+[E1,E2,E3,E4,E5].forEach(e=>{
+  let best=null;try{best=JSON.parse(localStorage.getItem('exam'+e.id+'-best'))}catch(x){}
+  const a=document.createElement('a');a.className='card exam-card';a.href='examen-'+e.id+'.html';
+  const h=document.createElement('span');h.className='num';h.textContent='Examen '+e.id;
+  const t=document.createElement('h3');t.textContent=e.title;
+  const p=document.createElement('p');p.textContent=e.desc;
+  const m=document.createElement('div');m.className='meta';
+  const l=document.createElement('span');l.textContent=e.qs.length+' questions · 30 min';
+  const b=document.createElement('span');b.className='badge'+(best&&best.score>=10?' good':'');b.textContent=best?best.score.toString().replace('.',',')+' / 20':'Non tenté';
+  m.append(l,b);a.append(h,t,p,m);g.append(a);
+});
+try{const r=document.documentElement,s=JSON.parse(localStorage.getItem('theme'));if(s)r.dataset.theme=s}catch(x){}
+document.getElementById('theme').onclick=()=>{const r=document.documentElement;const d=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;const n=d?'light':'dark';r.dataset.theme=n;try{localStorage.setItem('theme',JSON.stringify(n))}catch(x){}};
+</script>
+</body>
+</html>
