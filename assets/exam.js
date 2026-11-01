@@ -1,5 +1,6 @@
 (function(){
 const E=window.EXAM,qs=E.qs,N=qs.length,$=s=>document.querySelector(s);
+const SUB=SUBJECTS[E.sub],KEY='exam-'+E.sub+E.id+'-best';
 const app=$('#app');
 const norm=s=>String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ').trim();
 const store={get(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
@@ -31,8 +32,8 @@ function stateOf(k){ // pour la carte
 }
 /* ---- intro ---- */
 function intro(){
-  const best=store.get('exam'+E.id+'-best');
-  app.innerHTML=`<div class="hero"><div class="kicker">Examen ${E.id} sur 5 · Droit constitutionnel</div>
+  const best=store.get(KEY);
+  app.innerHTML=`<div class="hero"><div class="kicker">Examen ${E.id} sur 5 · ${esc(SUB.name)}</div>
   <h1>${esc(E.title)}</h1><p>${esc(E.desc)}</p></div>
   <div class="card"><div class="stats">
    <div class="stat"><b>${N}</b>questions</div><div class="stat"><b>30 min</b>conseillées</div>
@@ -125,11 +126,11 @@ function results(filter){
   filter=filter||'all';
   const max=S.list.length,sc=total(),pct=sc/max,R=78,C=2*Math.PI*R;
   const full=S.list.length===N;
-  if(full){const b=store.get('exam'+E.id+'-best');if(!b||sc>b.score)store.set('exam'+E.id+'-best',{score:Math.round(sc*10)/10,date:new Date().toISOString().slice(0,10)})}
+  if(full){const b=store.get(KEY);if(!b||sc>b.score)store.set(KEY,{score:Math.round(sc*10)/10,date:new Date().toISOString().slice(0,10)})}
   const ok=S.list.filter(k=>score(k)===1).length,ko=S.list.filter(k=>score(k)===0).length;
   const secs=Math.floor((Date.now()-S.start)/1000);
   const shown=S.list.filter(k=>filter==='all'||(filter==='ko'&&score(k)<1)||(filter==='flag'&&S.flag[k]));
-  app.innerHTML=`<div class="hero" style="padding-bottom:12px"><div class="kicker">Résultats · Examen ${E.id}</div><h1>${esc(E.title)}</h1></div>
+  app.innerHTML=`<div class="hero" style="padding-bottom:12px"><div class="kicker">Résultats · ${esc(SUB.name)} · Examen ${E.id}</div><h1>${esc(E.title)}</h1></div>
   <div class="card score"><div class="ring"><svg width="180" height="180" viewBox="0 0 180 180"><circle cx="90" cy="90" r="${R}" fill="none" stroke="var(--line)" stroke-width="12"/><circle cx="90" cy="90" r="${R}" fill="none" stroke="${pct>=.5?'var(--ok)':'var(--bad)'}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${C*(1-pct)}"/></svg>
    <div class="t"><b id="sc">${fmt(sc/max*20)}</b><span>sur 20</span></div></div>
    <div><h2 style="font-size:26px">${mention(sc,max)}</h2><div class="stats"><div class="stat"><b>${ok}</b>correctes</div><div class="stat"><b>${ko}</b>fausses</div><div class="stat"><b>${Math.floor(secs/60)} min ${secs%60}s</b>durée</div></div>

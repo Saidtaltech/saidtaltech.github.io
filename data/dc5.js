@@ -1,4 +1,4 @@
-window.EXAM={id:5,title:"Gouvernement, incompatibilités et domaine de la loi",
+window.EXAM={sub:'dc',id:5,title:"Gouvernement, incompatibilités et domaine de la loi",
 desc:"Composition et solidarité du Gouvernement, cumul ministre-député, habilitation (art. 77), saisine du Conseil constitutionnel (art. 74), synthèse.",
 qs:[
 Q("Qui compose le Gouvernement selon l'article 53 ?",["Le Premier ministre, chef du Gouvernement, les ministres et les Secrétaires d'État","Le Président et le Premier ministre","Le Premier ministre et les députés","Les ministres uniquement"],"Sa composition est fixée par décret.","Art. 53"),

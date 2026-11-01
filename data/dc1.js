@@ -1,4 +1,4 @@
-window.EXAM={id:1,title:"Fondements et évolution constitutionnelle",
+window.EXAM={sub:'dc',id:1,title:"Fondements et évolution constitutionnelle",
 desc:"Notions de régime politique, séparation des pouvoirs et grandes étapes de l'histoire constitutionnelle du Sénégal.",
 qs:[
 Q("Que désigne l'expression « régime politique » ?",["L'ensemble des règles qui organisent les pouvoirs publics, déterminent leurs compétences et encadrent leurs rapports","Uniquement le mode de scrutin des élections législatives","La liste des partis politiques autorisés","La personnalité du chef de l'État"],"Définition donnée en introduction de la fiche.","Fiche – introduction"),

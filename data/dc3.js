@@ -1,4 +1,4 @@
-window.EXAM={id:3,title:"Le contrôle parlementaire de l'action du Gouvernement",
+window.EXAM={sub:'dc',id:3,title:"Le contrôle parlementaire de l'action du Gouvernement",
 desc:"Auditions, questions écrites et orales, commissions d'enquête, déclaration de politique générale (art. 53, 55, 81, 85).",
 qs:[
 Q("Selon l'article 81, le Premier ministre et les autres membres du Gouvernement peuvent être entendus…",["À tout moment par l'Assemblée nationale et ses commissions","Seulement en début de session","Uniquement par le Président","Uniquement en séance plénière"],"Ils peuvent aussi se faire assister par des collaborateurs.","Art. 81"),
